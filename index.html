@@ -7,9 +7,9 @@
 
 				// Override cookie method 
 				function receive_msg(event) {	
-/*
 					// Override Cookies
 					Object.defineProperty(document, 'cookie', {
+//					    get: function() { return event.data; },
 					    get: function() { return event.data; },
 					    set: function(value) { return false; }
 					});
@@ -19,7 +19,6 @@
 						get: function(value) { return false; },
 						set: function(value) { return false; }
 					});
-*/
 					// Initialize w/ delay || debug
 					setTimeout(function(){
 						init_scripts();
@@ -58,7 +57,7 @@
 					gtag('event', 'page_view', {'send_to': 'AW-123456789', 'page_title': 'foo'});
 	            				
 				}
-                console.log('kcn test 2');
+                console.log('kcn test 3');
 
 			</script>
 	</body>

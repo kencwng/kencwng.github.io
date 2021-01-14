@@ -1,1 +1,65 @@
-Hello World
+<html>
+	<head>
+		<title>Tag Test</title>	
+	</head>
+	<body>
+			<script>
+
+				// Override cookie method 
+				function receive_msg(event) {	
+
+					// Override Cookies
+					Object.defineProperty(document, 'cookie', {
+					    get: function() { return event.data; },
+					    set: function(value) { return false; }
+					});
+
+					// Override Session Storage
+					Object.defineProperty(window, 'sessionStorage', {
+						get: function(value) { return false; },
+						set: function(value) { return false; }
+					});
+
+					// Initialize w/ delay || debug
+					setTimeout(function(){
+						init_scripts();
+					}, 3000);
+				}
+				window.addEventListener('message', receive_msg);
+
+				// Initialize sandboxed scripts
+				function init_scripts(){
+
+					// Debug cookie values
+					console.log(document.cookie);
+
+					// Run Sandboxed code
+					// FB Pixel
+					!function(f,b,e,v,n,t,s)
+					{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+					n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+					if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+					n.queue=[];t=b.createElement(e);t.async=!0;
+					t.src=v;s=b.getElementsByTagName(e)[0];
+					s.parentNode.insertBefore(t,s)}(window, document,'script',
+					'https://connect.facebook.net/en_US/fbevents.js');
+					fbq('init', '708247413283403');
+					fbq('track', 'PageView');
+
+					// Google Ads
+					var gtag_script = document.createElement('script');
+		            gtag_script.type = 'text/javascript';
+		            gtag_script.setAttribute('src', 'https://www.googletagmanager.com/gtag/js?id=UA-123456789');
+		            document.body.appendChild(gtag_script);
+		  			window.dataLayer = window.dataLayer || [ ] ;
+					function gtag(){dataLayer.push(arguments);}
+					gtag( 'js', new Date () ) ;
+					gtag( 'config', '123456789');
+					window.gtag('event', 'page_view', {'send_to': 'AW-123456789', 'page_title': 'foo'});
+	            				
+				}
+                console.log('kcn test 1');
+
+			</script>
+	</body>
+</html>

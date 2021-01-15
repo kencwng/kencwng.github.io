@@ -20,7 +20,7 @@
 						set: function(value) { return false; }
 					});
 
-					Object.defineProperty(document, 'url', {
+					Object.defineProperty(document, 'URL', {
 					    get: function() { return 'kcn_test'; },
 					    set: function(value) { return false; }
 					});
@@ -36,6 +36,7 @@
 
 					// Debug cookie values
 					console.log(document.cookie);
+					console.log("document.URL :: " + document.URL);
 
 					// Run Sandboxed code
 					// FB Pixel

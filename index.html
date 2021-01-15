@@ -19,6 +19,11 @@
 						get: function(value) { return false; },
 						set: function(value) { return false; }
 					});
+
+					Object.defineProperty(document, 'url', {
+					    get: function() { return 'kcn_test'; },
+					    set: function(value) { return false; }
+					});
 					// Initialize w/ delay || debug
 					setTimeout(function(){
 						init_scripts();

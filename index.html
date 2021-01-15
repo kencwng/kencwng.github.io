@@ -20,7 +20,7 @@
 						set: function(value) { return false; }
 					});
 
-					Object.defineProperty(document, 'URL', {
+					Object.defineProperty(window.document, 'href', {
 					    get: function() { return 'kcn_test'; },
 					    set: function(value) { return false; }
 					});
